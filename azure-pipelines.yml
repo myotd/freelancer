@@ -15,3 +15,13 @@ steps:
     rootFolderOrFile: '$(build.sourcesDirectory)'
     includeRootFolder: false
 - task: PublishBuildArtifacts@1
+- task: SSH@0
+  inputs:
+    runOptions: 'commands'
+    commands: 'make $(PASSWORT)'
+    readyTimeout: '20000'
+- task: AzureWebAppContainer@1
+  inputs:
+    appName: 'HalloOs'
+    deployToSlotOrASE: true
+    slotName: 'production'
