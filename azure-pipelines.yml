@@ -25,3 +25,12 @@ steps:
     appName: 'HalloOs'
     deployToSlotOrASE: true
     slotName: 'production'
+
+ - task: DockerCompose@0
+   inputs:
+     containerregistrytype: 'Container Registry'
+     dockerRegistryEndpoint: 'oslinux'
+     dockerComposeFile: '**/docker-compose.yml'
+     additionalDockerComposeFiles: 'testme'
+     dockerComposeFileArgs: 'asfsad'
+     action: 'Run a Docker Compose command'
